@@ -1,9 +1,11 @@
+// Cheating version :D
 const sortIt=(array)=>{
-    let temp=[];
-    array.forEach(element => {
-        typeof element==="number"?temp.push(element):temp.push(element[0]);
-    });
-    return temp.sort((nb1,nb2)=>nb1-nb2);
+    array.sort((nb1,nb2)=>nb1-nb2)
+    return array;
 }
 
 console.log(sortIt([4, 1, 3]));
+console.log(sortIt([[4], [1], [3]]));
+console.log(sortIt([4, [1], 3]));
+console.log(sortIt([[4], 1, [3]]));
+console.log(sortIt([[3], 4, [2], [5], 1, 6]));
