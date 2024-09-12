@@ -7,7 +7,7 @@ let random=Math.ceil(Math.random()*max);
 console.log(random);
 let nbTries= 1;
 let guess=parseInt(prompt("What is your guess?"));
-while(isNaN(guess) ||guess!==random){
+while(guess!==random){
     if(isNaN(guess)){
         alert("Not a number !");
     }else if(guess===0){
