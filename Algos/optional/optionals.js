@@ -1,6 +1,5 @@
-//one line 1
-// const removeDuplicate=array=>array.filter(word=>word===word);
-
+// //one line 1
+// const removeDuplicate=array=>array.mapo");
 // console.log(removeDuplicate(["hello", "world", "goodbye", "world"]));
 
 
@@ -52,13 +51,29 @@ const getSmallest=array=>Math.min(...array);
 
 
 //one line 6
-// const areEqual=(array1,array2)=>array1.every(val)=>
+// const areEqual=(array1,array2)=>array1.every(elem=>array2.includes(elem)) && array2.every(elem=>array1.includes(elem));
+// const arr1 = [1, 2, 3, 4,5];
+// const arr2 = [3, 1, 4, 2];
+// const arr3 = [5,1, 2, 3,4];
+
+// console.log(arr1,);
+// console.log(arr2,arr3);
+// console.log(areEqual(arr2,arr1));
+// console.log(areEqual(arr3,arr1));
+
+
+// one line 7
+const randomRGB=()=>`rgb(${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)})`; 
+// console.log(randomRGB());
+// console.log(randomRGB());
+// console.log(randomRGB());
+// console.log(randomRGB());
 
 //one line 8
 const occurencies=(word,letter)=>word.split("").filter(char=>char==letter).length;
-console.log(occurencies("hello", "l"));
-console.log(occurencies("abracadabra", "a"));
-console.log(occurencies("oups", "z"));
+// console.log(occurencies("hello", "l"));
+// console.log(occurencies("abracadabra", "a"));
+// console.log(occurencies("oups", "z"));
 
 
 //one line 9
@@ -67,3 +82,103 @@ const onlyPositives=array=>array.filter(val=>val>0).reduce((accumulator,current)
 // console.log(onlyPositives([1, 6, 2, -3, 5, -12]));
 // console.log(onlyPositives([-3, -4, -2]));
 // console.log(onlyPositives([-3, -4, -2,0,10,5,6,7,9]));
+
+
+//one line 10
+const scanAndFind=(array,obj)=>Object.keys(obj).length>0?array.filter(element=>element[Object.keys(obj)[0]]===Object.values(obj)[0]):[];
+console.log(scanAndFind(
+    [
+      {
+        firstName: "Vito",
+        lastName: "Corleone",
+      },
+      {
+        firstName: "Jon",
+        lastName: "Snow",
+      },
+      {
+        firstName: "Harry",
+        lastName: "Potter",
+      },
+      {
+        firstName: "Michal",
+        lastName: "Corleone",
+      },
+    ],
+    {
+      lastName: "Corleone",
+    }
+  ));
+
+console.log(scanAndFind(
+    [
+      { fullName: "Roi Baudoin", id: 49762 },
+      { fullName: "Margareth Tatcher", id: 94357 },
+      { fullName: "Barack Obama", id: 76458 },
+      { fullName: "Emmanuel Macron", id: 10687 },
+      { fullName: "Charles de Gaulle", id: 67098 },
+      { fullName: "Boris Johnson", id: 16437 },
+    ],
+    { id: 10687 }
+  ));
+//   Result : [{fullName: "Emmanuel Macron", id: 10687}]
+
+console.log(scanAndFind([], { id: 10687 }));
+// Résultat attendu : [] (aucun élément dans le tableau)
+
+console.log(scanAndFind(
+  [
+    { name: "Alice", age: 30 },
+    { name: "Bob", age: 25 }
+  ],
+  {}
+));
+// Résultat attendu : [] (aucun critère de recherche spécifié)
+
+console.log(scanAndFind(
+  [
+    { name: "Alice", age: 30 },
+    { name: "Bob", age: 25 },
+    { name: "Charlie", age: 30 }
+  ],
+  { age: 25 }
+));
+// Résultat attendu : [{ name: "Bob", age: 25 }]
+
+console.log(scanAndFind(
+  [
+    { id: "123", name: "Alice" },
+    { id: 123, name: "Bob" }
+  ],
+  { id: 123 }
+));
+// Résultat attendu : [{ id: 123, name: "Bob" }] (comparaison stricte avec nombre)
+
+console.log(scanAndFind(
+  [
+    { name: "Alice", age: 30 },
+    { name: "Bob", age: 25 }
+  ],
+  { name: "Alice" }
+));
+// Résultat attendu : [{ name: "Alice", age: 30 }]
+
+
+console.log(scanAndFind(
+  [
+    { name: "Alice", age: 30 },
+    { name: "Bob", age: 25 }
+  ],
+  { age: 35 }
+));
+// Résultat attendu : [] (aucun objet avec age 35)
+
+console.log(scanAndFind(
+  [
+    { name: "Alice", age: 30 },
+    { name: "Alice", age: 30 },
+    { name: "Bob", age: 25 }
+  ],
+  { age: 30 }
+));
+// Résultat attendu : [{ name: "Alice", age: 30 }, { name: "Alice", age: 30 }]
