@@ -54,6 +54,12 @@ const getSmallest=array=>Math.min(...array);
 //one line 6
 // const areEqual=(array1,array2)=>array1.every(val)=>
 
+//one line 8
+const occurencies=(word,letter)=>word.split("").filter(char=>char==letter).length;
+console.log(occurencies("hello", "l"));
+console.log(occurencies("abracadabra", "a"));
+console.log(occurencies("oups", "z"));
+
 
 //one line 9
 const onlyPositives=array=>array.filter(val=>val>0).reduce((accumulator,current)=>accumulator+current,0);
