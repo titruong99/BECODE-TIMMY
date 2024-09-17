@@ -1,6 +1,8 @@
 // //one line 1
-// const removeDuplicate=array=>array.mapo");
+const removeDuplicate=array=>array.filter((item, index) => array.indexOf(item) === index);
 // console.log(removeDuplicate(["hello", "world", "goodbye", "world"]));
+// console.log(removeDuplicate([true, true, false, true, true, false]));
+// Result : [true, false]
 
 
 //one line 2
@@ -51,15 +53,38 @@ const getSmallest=array=>Math.min(...array);
 
 
 //one line 6
-// const areEqual=(array1,array2)=>array1.every(elem=>array2.includes(elem)) && array2.every(elem=>array1.includes(elem));
-// const arr1 = [1, 2, 3, 4,5];
-// const arr2 = [3, 1, 4, 2];
-// const arr3 = [5,1, 2, 3,4];
+const areEqual=(array1,array2)=>array1.length===array2.length?array1.sort((a,b)=>a-b).every((elem,index)=>array2.sort((a,b)=>a-b).indexOf(elem)==index):false;
 
-// console.log(arr1,);
-// console.log(arr2,arr3);
-// console.log(areEqual(arr2,arr1));
-// console.log(areEqual(arr3,arr1));
+// const arr1 = [1, 2, 3, 4];
+// const arr2 = [3, 1, 4, 2];
+// const arr3 = [1, 2, 3];
+// console.log(areEqual(arr1,arr2));
+// console.log(areEqual(arr1,arr3));
+
+// const arr1 = [1, 2, 3, 4];
+// const arr2 = [4, 3, 2, 1];
+// console.log(areEqual(arr1,arr2));
+// Résultat : true
+
+// const arr1 = [1, 2, 3, 4];
+// const arr2 = [1, 2, 3, 5];
+// console.log(areEqual(arr1,arr2));
+// Résultat : false
+
+// const arr1 = [1, 2, 3];
+// const arr2 = [1, 2, 3, 4];
+// console.log(areEqual(arr1,arr2));
+// Résultat : false
+
+// const arr1 = [1, 2, 3];
+// const arr2 = [1, 2, 2, 3];
+// console.log(areEqual(arr1,arr2));
+// Résultat : false
+
+// const arr1 = [];
+// const arr2 = [];
+// console.log(areEqual(arr1,arr2));
+// Résultat : true
 
 
 // one line 7
@@ -86,99 +111,99 @@ const onlyPositives=array=>array.filter(val=>val>0).reduce((accumulator,current)
 
 //one line 10
 const scanAndFind=(array,obj)=>Object.keys(obj).length>0?array.filter(element=>element[Object.keys(obj)[0]]===Object.values(obj)[0]):[];
-console.log(scanAndFind(
-    [
-      {
-        firstName: "Vito",
-        lastName: "Corleone",
-      },
-      {
-        firstName: "Jon",
-        lastName: "Snow",
-      },
-      {
-        firstName: "Harry",
-        lastName: "Potter",
-      },
-      {
-        firstName: "Michal",
-        lastName: "Corleone",
-      },
-    ],
-    {
-      lastName: "Corleone",
-    }
-  ));
+// console.log(scanAndFind(
+//     [
+//       {
+//         firstName: "Vito",
+//         lastName: "Corleone",
+//       },
+//       {
+//         firstName: "Jon",
+//         lastName: "Snow",
+//       },
+//       {
+//         firstName: "Harry",
+//         lastName: "Potter",
+//       },
+//       {
+//         firstName: "Michal",
+//         lastName: "Corleone",
+//       },
+//     ],
+//     {
+//       lastName: "Corleone",
+//     }
+//   ));
 
-console.log(scanAndFind(
-    [
-      { fullName: "Roi Baudoin", id: 49762 },
-      { fullName: "Margareth Tatcher", id: 94357 },
-      { fullName: "Barack Obama", id: 76458 },
-      { fullName: "Emmanuel Macron", id: 10687 },
-      { fullName: "Charles de Gaulle", id: 67098 },
-      { fullName: "Boris Johnson", id: 16437 },
-    ],
-    { id: 10687 }
-  ));
+// console.log(scanAndFind(
+//     [
+//       { fullName: "Roi Baudoin", id: 49762 },
+//       { fullName: "Margareth Tatcher", id: 94357 },
+//       { fullName: "Barack Obama", id: 76458 },
+//       { fullName: "Emmanuel Macron", id: 10687 },
+//       { fullName: "Charles de Gaulle", id: 67098 },
+//       { fullName: "Boris Johnson", id: 16437 },
+//     ],
+//     { id: 10687 }
+//   ));
 //   Result : [{fullName: "Emmanuel Macron", id: 10687}]
 
-console.log(scanAndFind([], { id: 10687 }));
+// console.log(scanAndFind([], { id: 10687 }));
 // Résultat attendu : [] (aucun élément dans le tableau)
 
-console.log(scanAndFind(
-  [
-    { name: "Alice", age: 30 },
-    { name: "Bob", age: 25 }
-  ],
-  {}
-));
+// console.log(scanAndFind(
+//   [
+//     { name: "Alice", age: 30 },
+//     { name: "Bob", age: 25 }
+//   ],
+//   {}
+// ));
 // Résultat attendu : [] (aucun critère de recherche spécifié)
 
-console.log(scanAndFind(
-  [
-    { name: "Alice", age: 30 },
-    { name: "Bob", age: 25 },
-    { name: "Charlie", age: 30 }
-  ],
-  { age: 25 }
-));
+// console.log(scanAndFind(
+//   [
+//     { name: "Alice", age: 30 },
+//     { name: "Bob", age: 25 },
+//     { name: "Charlie", age: 30 }
+//   ],
+//   { age: 25 }
+// ));
 // Résultat attendu : [{ name: "Bob", age: 25 }]
 
-console.log(scanAndFind(
-  [
-    { id: "123", name: "Alice" },
-    { id: 123, name: "Bob" }
-  ],
-  { id: 123 }
-));
+// console.log(scanAndFind(
+//   [
+//     { id: "123", name: "Alice" },
+//     { id: 123, name: "Bob" }
+//   ],
+//   { id: 123 }
+// ));
 // Résultat attendu : [{ id: 123, name: "Bob" }] (comparaison stricte avec nombre)
 
-console.log(scanAndFind(
-  [
-    { name: "Alice", age: 30 },
-    { name: "Bob", age: 25 }
-  ],
-  { name: "Alice" }
-));
+// console.log(scanAndFind(
+//   [
+//     { name: "Alice", age: 30 },
+//     { name: "Bob", age: 25 }
+//   ],
+//   { name: "Alice" }
+// ));
 // Résultat attendu : [{ name: "Alice", age: 30 }]
 
 
-console.log(scanAndFind(
-  [
-    { name: "Alice", age: 30 },
-    { name: "Bob", age: 25 }
-  ],
-  { age: 35 }
-));
+// console.log(scanAndFind(
+//   [
+//     { name: "Alice", age: 30 },
+//     { name: "Bob", age: 25 }
+//   ],
+//   { age: 35 }
+// ));
 // Résultat attendu : [] (aucun objet avec age 35)
 
-console.log(scanAndFind(
-  [
-    { name: "Alice", age: 30 },
-    { name: "Alice", age: 30 },
-    { name: "Bob", age: 25 }
-  ],
-  { age: 30 }
-));
+// console.log(scanAndFind(
+//   [
+//     { name: "Alice", age: 30 },
+//     { name: "Alice", age: 30 },
+//     { name: "Bob", age: 25 }
+//   ],
+//   { age: 30 }
+// ));
 // Résultat attendu : [{ name: "Alice", age: 30 }, { name: "Alice", age: 30 }]
