@@ -1,11 +1,11 @@
-const oddishOrEvenish=(number)=>{
-    let total=0;
-    let str=number.toString();
-    for(let i=0;i<str.length;i++){
-        total+=parseInt(str[i]);
-    }
-    return total%2==0?"Evenish":"Oddish";
-}
+// const oddishOrEvenish=(number)=>{
+//     let total=0;
+//     let str=number.toString();
+//     for(let i=0;i<str.length;i++){
+//         total+=parseInt(str[i]);
+//     }
+//     return total%2==0?"Evenish":"Oddish";
+// }
 
 // algorithm with array: not really necessary
 // const oddishOrEvenish=(number)=>{
@@ -17,6 +17,10 @@ const oddishOrEvenish=(number)=>{
 //     console.log(total);
 //     return total%2==0?"Evenish":"Oddish";
 // }
+
+const oddishOrEvenish=(number)=>number.toString().split("").reduce(
+    (accumulator, currentValue) => 
+        parseInt(accumulator) + parseInt(currentValue),0)%2==0?"Evenish":"Oddish";
 
 console.log(oddishOrEvenish(43));
 console.log(oddishOrEvenish(373));

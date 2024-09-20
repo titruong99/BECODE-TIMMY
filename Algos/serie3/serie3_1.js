@@ -1,10 +1,13 @@
-const getTotalPrice=(array)=>{
-    let total=0;
-    array.forEach(element => {
-        total+=element.quantity*element.price;
-    });
-    return parseFloat(total.toFixed(2));
-}
+// const getTotalPrice=(array)=>{
+//     let total=0;
+//     array.forEach(element => {
+//         total+=element.quantity*element.price;
+//     });
+//     return parseFloat(total.toFixed(2));
+// }
+
+const getTotalPrice=array=>array.reduce(
+  (accumulator, currentValue) => accumulator + currentValue.price*currentValue.quantity,0);
 
 console.log(getTotalPrice([
     { product: "Milk", quantity: 1, price: 1.50 }
