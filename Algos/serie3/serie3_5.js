@@ -2,6 +2,7 @@ const convert=(temperature)=>{
     let answer="";
     switch(temperature.charAt(temperature.length-1).toUpperCase()){
         case "C":
+            console.log(parseFloat(temperature));
             answer=`${Math.round(parseFloat(temperature)*9/5+32)}°F`;
             break;
         case "F":
