@@ -1,20 +1,20 @@
 // const sortDrinkByPrice=(array)=>{
-//     array.sort((p1,p2)=>{
-//         return p1.price-p2.price;
-//     });
+//     for(i=0;i<array.length;i++){
+//         for(j=i+1;j<array.length;j++){
+//             if(array[i].price>array[j].price){
+//                 let temp=array[i];
+//                 array[i]=array[j];
+//                 array[j]=temp;
+//             }
+
+//         }
+//     }
 // }
 
 const sortDrinkByPrice=(array)=>{
-    for(i=0;i<array.length;i++){
-        for(j=i+1;j<array.length;j++){
-            if(array[i].price>array[j].price){
-                let temp=array[i];
-                array[i]=array[j];
-                array[j]=temp;
-            }
-
-        }
-    }
+    array.sort((p1,p2)=>{
+        return p1.price-p2.price;
+    });
 }
 
 let arr=drinks = [
