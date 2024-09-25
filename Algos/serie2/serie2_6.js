@@ -1,4 +1,3 @@
-// Cheating version :D
 const sortIt=(array)=>{
     array.sort((nb1,nb2)=>nb1-nb2)
     return array;

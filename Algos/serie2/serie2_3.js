@@ -1,4 +1,3 @@
-// Without cheating :D
 // const toArray=(obj)=>{
 //     let array=[];
 //     for(let elem in obj){
@@ -7,7 +6,7 @@
 //     return array;
 // }
 
-// const toArray=(obj)=>Object.entries(obj);
+const toArray=(obj)=>Object.entries(obj);
 
 
 console.log(toArray({ a: 1, b: 2 }));
