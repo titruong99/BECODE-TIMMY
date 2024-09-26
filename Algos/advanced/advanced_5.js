@@ -1,3 +1,11 @@
+// const reverse=array=>{
+//     let arr=[]
+//     for(let i=array.length-1;i>=0;i--){
+//         arr.push(array[i]);
+//     }
+//     return arr;
+// }
+
 const reverse=array=>{
     for(let i=0;i<Math.floor(array.length/2);i++){
         let temp=array[array.length-(i+1)];

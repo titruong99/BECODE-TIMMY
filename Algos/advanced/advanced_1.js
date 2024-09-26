@@ -38,21 +38,15 @@
 // function ransomNote(noteText, magazineText) {
 //     let noteArray = noteText.split(" ");
 //     let magazineArray = magazineText.split(" ");
-
-
-
 //     for (let i = 0; i < noteArray.length; i++) {
-
 //     let indexMot = magazineArray.indexOf(noteArray[i])
 //         if (indexMot === -1) {
 //             return false;
-
-//         } else{ 
-//         magazineArray.splice(indexMot, 1)
+//         }else{ 
+//             magazineArray.splice(indexMot, 1)
 //         }
-// }
-//    return true;
-
+//     }
+//     return true;
 // }
 
 const ransomNote=(noteText,magazineText)=>{
