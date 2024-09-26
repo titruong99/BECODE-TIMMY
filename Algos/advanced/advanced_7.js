@@ -1,10 +1,7 @@
 const fibonacci=n=>{
     let arr=getStartingArray(n);
-    if(n>2){
-        let tempvalue=n-2;
-        for(i=0;i<tempvalue;i++){
-            arr.push(arr[i]+arr[i+1]);
-        }
+    for(let i=2;i<n;i++){
+        arr.push(arr[i-1]+arr[i-2]);
     }
     return arr;
 };
