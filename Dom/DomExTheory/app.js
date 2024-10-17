@@ -23,3 +23,16 @@ Array.from(list.children).forEach(element => {
 });
 
 list.lastElementChild.style.color="gold";
+// let buttons=document.querySelectorAll("button");
+// buttons.forEach(button=>button.addEventListener("click",e=>console.log(e.target)));
+document.addEventListener("click", (e) => {
+    if (e.target.matches(".parent")) {
+        alert("clicked");
+      // Handle clicks on the elements with "my-class" class
+    }
+    if (e.target.matches("li")) {
+        alert("li");
+      // Handle clicks on all li in the page
+    }
+    // etc
+  });
