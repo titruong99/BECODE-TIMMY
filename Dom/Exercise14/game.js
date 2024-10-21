@@ -88,10 +88,6 @@ const checkWinningAlignment = () => {
     return winner;
 };
 
-const endGame=()=>{
-    cells.forEach(elem=>elem.innerHTML="");
-}
-
 let cells= document.querySelectorAll(".cell");
 cells.forEach(element =>element.addEventListener("click",e=>{
     if(!finished){
