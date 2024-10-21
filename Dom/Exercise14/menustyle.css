@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    background-color: lightgray;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 30px;
+}
+
+.players{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    column-gap: 50px;
+}
+
+.containerCross,.containerCircle{
+    text-align: center;
+}
+
+.cross{
+    position: relative;
+    width: 150px;
+    height: 150px;    
+    border: solid 1px black;
+    margin-top: 10px;
+}
+
+.cross::after{
+    position: absolute;
+    content: "\274C";
+    font-size:70px;
+    width:80px;
+    height:80px;
+    top: 15%;
+    left:20%;
+}
+
+
+.circle{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border: solid 1px black;
+    margin-top: 10px;
+}
+
+.circle::after{
+    position: absolute;
+    content: "";
+    border-radius:100px;
+    border:solid 10px blue;
+    width:60px;
+    height:60px;
+    top: 25%;
+    left:25%;
+}
+
+
+
+
+
+
