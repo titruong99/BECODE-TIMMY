@@ -1,5 +1,7 @@
 const params = new URLSearchParams(window.location.search);
 let starter=params.get("starter");
+let nameCrossPlayer=params.get("crossPlayer");
+let nameCirclePlayer=params.get("circlePlayer");
 
 const winCombinations = [
     [0, 1, 2],
@@ -15,9 +17,11 @@ const winCombinations = [
 let board=["","","","","","","","",""];
 let winner="";
 let finished=false;
-let currentPlayer=starter;
+let currentPlayer=starter
 let nbPointsCrossPlayer=0;
 let nbPointsCirclePlayer=0;
+
+const getCurrentPlayerName=()=>currentPlayer=="cross"?nameCrossPlayer:nameCirclePlayer;
 
 const createCircle=()=>{
     let circle=document.createElement("p");
@@ -36,7 +40,7 @@ const createCross=()=>{
 };
 
 const restart=()=>{
-    currentPlayer=starter;
+    currentPlayer=starter
     cells.forEach(elem=>{
         while(elem.firstChild){
             elem.removeChild(elem.firstChild);
@@ -44,7 +48,7 @@ const restart=()=>{
     });
     reloadBoard();
     finished=false;
-    message.innerText="Ok, we are back ! You start "+currentPlayer+" player.";
+    message.innerText="Ok, we are back ! You start "+getCurrentPlayerName()+".";
 };
 
 const reloadBoard=()=>{
@@ -78,10 +82,10 @@ const checkWinningAlignment = () => {
         }
 
         if (nbCross === 3) {
-            winner = "cross";
+            winner = nameCrossPlayer;
             break;
         } else if (nbCircles === 3) {
-            winner = "circle";
+            winner = nameCirclePlayer;
             break;
         }
     }
@@ -96,17 +100,17 @@ cells.forEach(element =>element.addEventListener("click",e=>{
             board[e.target.getAttribute('data-nb')]=currentPlayer;
             currentPlayer=currentPlayer=="cross"?"circle":"cross";
             element.appendChild(symbol);
-            message.innerText="Your turn, "+currentPlayer+" player.";
+            message.innerText="Your turn, "+getCurrentPlayerName()+".";
         }
         checkWinningAlignment();
         if(winner!==""){
             message.innerText=`Congratulations, ${winner}! You are the winner !`;
-            if(winner=="cross"){
+            if(winner==nameCrossPlayer){
                 nbPointsCrossPlayer++;
-                crossPlayer.innerText=nbPointsCrossPlayer;
+                pointsCrossPlayer.innerText=nbPointsCrossPlayer;
             }else{
                 nbPointsCirclePlayer++;
-                circlePlayer.innerText=nbPointsCirclePlayer;
+                pointsCirclePlayer.innerText=nbPointsCirclePlayer;
             }
             finished=true;
         }else if(boardIsFull()){
@@ -122,11 +126,14 @@ button.addEventListener("click",e=>{
     restart();
 });
 
+let names=document.querySelectorAll("label");
+names[0].innerText=nameCrossPlayer;
+names[1].innerText=nameCirclePlayer;
 let paragraphs=document.querySelectorAll("p");
 let message=paragraphs[paragraphs.length-1];
-let crossPlayer=paragraphs[0];
-let circlePlayer=paragraphs[1];
-message.innerText="Welcome players! You start "+currentPlayer+" player.";
+let pointsCrossPlayer=paragraphs[0];
+let pointsCirclePlayer=paragraphs[1];
+message.innerText="Welcome players! You start "+getCurrentPlayerName()+".";
 
 
 
