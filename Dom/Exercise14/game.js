@@ -134,18 +134,3 @@ let message=paragraphs[paragraphs.length-1];
 let pointsCrossPlayer=paragraphs[0];
 let pointsCirclePlayer=paragraphs[1];
 message.innerText="Welcome players! You start "+getCurrentPlayerName()+".";
-
-
-
-// cells.forEach(element =>element.addEventListener("mouseover",e=>{
-//     if(element.children.length==0){
-//         let symbol=currentPlayer=="cross"?createCross:createCircle();
-//         element.appendChild(symbol);
-//     }
-// }));
-
-// cells.forEach(element =>element.addEventListener("mouseout",e=>{
-//     if(element.firstChild && !element.classList.contains('symbol-placed')){
-//         element.removeChild(element.firstChild);
-//     }
-// }));
