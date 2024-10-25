@@ -36,6 +36,8 @@ const createDeleteButton=(task)=>{
     button.style.height="20px";
     button.dataset.task="task "+number;
     button.addEventListener("click",e=>{
+        console.log("innerText:"+task.innerText);
+        console.log("key: "+getAssociatedKey(task.innerText));
         localStorage.removeItem(getAssociatedKey(task.innerText));
         todos.removeChild(document.querySelector(`[data-task="${button.dataset.task}"]`));
     });
@@ -71,6 +73,9 @@ const reloadData=()=>{
     number=localStorage.getItem("currentNumberTask")===null?1:localStorage.getItem("currentNumberTask");
     const keys = Object.keys(localStorage);
     let tasks=keys.filter(key=>key.includes("task"));
+    tasks.sort((a,b)=>{
+        return parseInt(a.split(" ").pop())-parseInt(b.split(" ").pop());
+    });
     tasks.forEach(elem=>createToDo(localStorage.getItem(elem)));
 };
 
