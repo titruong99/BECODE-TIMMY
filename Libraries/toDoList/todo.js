@@ -3,8 +3,6 @@ let buttonClear=document.querySelector(".clear");
 let input= document.querySelector("input");
 let message=document.querySelector("p");
 let todos=document.querySelector(".todos");
-
-let arrTodos=[];
 let nbTask=1;
 
 const createToDo=(elem,nb)=>{
@@ -34,7 +32,6 @@ const createDeleteButton=(toDo,nb,toDoText)=>{
     button.addEventListener("click",e=>{
         toDo.remove();
         localStorage.removeItem("task "+nb);
-        arrTodos=arrTodos.filter(elem=>elem!=toDoText);
     });
     return button;
 }
@@ -47,7 +44,6 @@ buttonAdd.addEventListener("click",e=>{
     if(input.value===""){
         message.innerText="You have to put a todo";
     }else{
-        arrTodos.push(input.value);
         localStorage.setItem("task "+nbTask,input.value);
         createToDo(null,-1);
         nbTask++;
@@ -55,11 +51,10 @@ buttonAdd.addEventListener("click",e=>{
 });
 
 buttonClear.addEventListener("click",e=>{
-    if(arrTodos.length==0){
+    if(localStorage.length==0){
         message.innerText="You have nothing to clear";
     }else{
         nbTask=1;
-        arrTodos=[];
         localStorage.clear();
         todos.innerHTML="";
     }
@@ -67,33 +62,30 @@ buttonClear.addEventListener("click",e=>{
 
 
 const reloadData=()=>{
-    reloadArray();
-    reloadLocaleStorage();
-    reloadTodos();
+    let tasks=reloadLocaleStorage();
+    reloadTodos(tasks);
 }
 
-const reloadArray=()=>{
-    let tasks=Object.keys(localStorage);
-    tasks.sort((a,b)=>{
-        return parseInt(a.split(" ").pop())-parseInt(b.split(" ").pop());
-    });
-
-    for(let i=0;i<tasks.length;i++){
-        arrTodos.push(localStorage.getItem(tasks[i]));
-    }
-}
 
 const reloadLocaleStorage=()=>{
-    localStorage.clear();
-    for(let i=0;i<arrTodos.length;i++){
-        localStorage.setItem("task "+(i+1),arrTodos[i]);
+    let tasks=[];
+    let keys=Object.keys(localStorage).sort((a,b)=>{
+        return parseInt(a.split(" ").pop())-parseInt(b.split(" ").pop());
+    });
+    for(let i=0;i<keys.length;i++){
+        tasks.push(localStorage[keys[i]]);
     }
-    nbTask=arrTodos.length+1;
+    localStorage.clear();
+    for(let i=0;i<tasks.length;i++){
+        localStorage.setItem("task "+(i+1),tasks[i]);
+    }
+    nbTask=tasks.length+1;
+    return tasks;
 }
 
-const reloadTodos=()=>{
-    for(let i=0;i<arrTodos.length;i++){
-        createToDo(arrTodos[i],i+1);
+const reloadTodos=(tasks)=>{
+    for(let i=0;i<tasks.length;i++){
+        createToDo(tasks[i],i+1);
     }
 }
 
