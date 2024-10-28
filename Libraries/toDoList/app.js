@@ -6,8 +6,13 @@ let todos=document.querySelector(".todos");
 let number=localStorage.getItem("currentNumberTask")===null?1:localStorage.getItem("currentNumberTask");
 
 const getAssociatedKey=(value)=>{
+    console.log(localStorage);
     for(let i=0;i<localStorage.length;i++){
-        if(value===localStorage.getItem(localStorage.key(i))){
+        // console.log("value:"+value);
+        // console.log("valeur de la clé:"+localStorage.getItem(localStorage.key(i)));
+        // console.log("?"+value===localStorage.getItem(localStorage.key(i)));
+        if(value==localStorage.getItem(localStorage.key(i))){
+            console.log(true);
             return localStorage.key(i);
         }
     }
@@ -16,7 +21,8 @@ const getAssociatedKey=(value)=>{
 
 const createToDo=taskText=>{
     let task=document.createElement("p");
-    task.innerText=taskText==""?input.value:taskText;
+    let value=input.value;
+    task.innerText=taskText==""?value:taskText;
     let deleteButton=createDeleteButton(task);
     let todo=document.createElement("div");
     todo.style.borderBottom="1px solid black";
@@ -36,8 +42,6 @@ const createDeleteButton=(task)=>{
     button.style.height="20px";
     button.dataset.task="task "+number;
     button.addEventListener("click",e=>{
-        console.log("innerText:"+task.innerText);
-        console.log("key: "+getAssociatedKey(task.innerText));
         localStorage.removeItem(getAssociatedKey(task.innerText));
         todos.removeChild(document.querySelector(`[data-task="${button.dataset.task}"]`));
     });

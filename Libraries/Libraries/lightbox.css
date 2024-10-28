@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+}
+
+div{
+    width:100px;
+    height:100px;
+    aspect-ratio: 1;
+}
+
+img{
+    width:100px;
+    height:100px;
+}
+
+.fslightbox-overlay {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.fslightbox-source {
+    object-fit: contain;
+    max-width: 250px; /* contrôle la largeur maximale */
+    max-height: 150px; /* contrôle la hauteur maximale */
+}
