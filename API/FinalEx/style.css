@@ -1,0 +1,29 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    height: 300px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.food{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px;
+}
+
+.error{
+    color: red;
+    font-size: 10px;
+}
+
+.centered-placeholder{
+    text-align: center;
+}
