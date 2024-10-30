@@ -5,7 +5,7 @@
 }
 
 .container{
-    height: 300px;
+    position:"relative";
     display:flex;
     justify-content: center;
     align-items: center;
@@ -19,11 +19,20 @@
     row-gap: 10px;
 }
 
-.error{
-    color: red;
+.message{
+    color:red;
+}
+
+p{
     font-size: 10px;
 }
 
 .centered-placeholder{
     text-align: center;
+}
+
+.meals{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
 }
