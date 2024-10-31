@@ -37,49 +37,59 @@ const createListIngredientsWithMeasures=(meal)=>{
     return list;
 };
 
-const createModalMeal=(meal)=>{
+const createImageModalMeal=(meal)=>{
+    let image=document.createElement("img");
+    image.src=meal["strMealThumb"];
+    image.style.width="200px";
+    image.style.height="200px";
+    image.style.marginTop="10px";
+    image.style.borderRadius="100px";
+    return image;
+}
+
+const createTitleModalMeal=(meal)=>{
+    let title=document.createElement("h1");
+    title.style.textAlign="center";
+    title.innerText=meal["strMeal"];
+    return title;
+};
+
+const createDescriptionText=(meal)=>{
+    let description=document.createElement("p");
+    description.innerText=`Instructions:\n${meal["strInstructions"]}`;
+    return description;
+}
+
+const createModalDiv=()=>{
     let div=document.createElement("div");
-    div.style.width="300px";
-    // div.style.height="300px";
+    div.style.width="400px";
     div.style.backgroundColor="beige";
     div.style.display="flex";
     div.style.flexDirection="column";
     div.style.justifyContent="center";
     div.style.alignItems="center";
+    div.style.gap="20px";
     div.style.position="absolute";
-    div.style.left="25%";
+    div.style.top="2%";
+    div.style.left="30%";
+    div.style.borderRadius="20px";
+    div.style.paddingLeft="10px";
+    div.style.paddingRight="5px";
+    div.style.paddingBottom="10px";
+    return div;
+};
 
-    let button=document.createElement("button");
-    button.style.position="right";
-    button.innerText="x";
-    button.addEventListener("click",e=>{
-        div.remove();
-    });
-
-    let image=document.createElement("img");
-    image.src=meal["strMealThumb"];
-    image.style.width="100px";
-    image.style.height="100px";
-
-    let title=document.createElement("h1");
-    title.innerText=meal["strMeal"];
-    
+const createModalMeal=(meal)=>{
+    let div=createModalDiv();
+    let image=createImageModalMeal(meal);
+    let title=createTitleModalMeal(meal);
     let listIngredients=createListIngredientsWithMeasures(meal);
-    let description=document.createElement("p");
-    description.innerText=`Instructions:\n${meal["strInstructions"]}`;
-
-    div.appendChild(button);
-    div.append(image);
-    div.appendChild(title);
-    div.appendChild(listIngredients);
-    div.appendChild(description);
-
+    let description=createDescriptionText(meal);
+    div.append(image,title,listIngredients,description);
     container.appendChild(div);
-    
 }
 
-
-const createMeal=(meal)=>{
+const createDivMeal=(meal)=>{
     let div=document.createElement("div");
     div.style.display="flex";
     div.style.flexDirection="column";
@@ -92,18 +102,29 @@ const createMeal=(meal)=>{
     div.addEventListener("click",e=>{
         createModalMeal(meal);
     })
+    return div;
+}
 
+const createImgMeal=(meal)=>{
     let imageMeal=document.createElement("img");
     imageMeal.src=meal["strMealThumb"];
     imageMeal.style.width="200px";
     imageMeal.style.height="200px";
     imageMeal.style.borderRadius="10px";
-    
+    return imageMeal;
+}
+
+const createMealName=(meal)=>{
     let mealName=document.createElement("p");
     mealName.innerText=meal["strMeal"];
+    return mealName;
+}
 
-    div.appendChild(imageMeal);
-    div.appendChild(mealName);
+const createMeal=(meal)=>{
+    let div=createDivMeal(meal);
+    let image=createImgMeal(meal);
+    let mealName=createMealName(meal);
+    div.append(image,mealName);
     return div;
 }
 
