@@ -60,8 +60,31 @@ const createDescriptionText=(meal)=>{
     return description;
 }
 
+const createOverlayDiv = () => {
+    let div = document.createElement("div");
+    div.classList="overlay";
+    div.style.position = "fixed";  // Pour que l'overlay soit fixe par rapport à la fenêtre
+    div.style.top = "0";           // Positionne l'overlay en haut
+    div.style.left = "0";          // Positionne l'overlay à gauche
+    div.style.width = "100%";      // Prend toute la largeur de l'écran
+    div.style.height = "100%";     // Prend toute la hauteur de l'écran
+    div.style.backgroundColor = "rgba(0, 0, 0, 0.5)";  // Couleur noire avec transparence
+    div.style.zIndex = "1000";     // Assure que l'overlay est au-dessus des autres éléments
+    div.style.overflow = "scroll"; // Permet le défilement vertical
+    document.body.style.overflow ="hidden";
+    div.addEventListener("click",e=>{
+        if(e.target.classList.contains("overlay")){
+            div.remove();
+            document.body.style.overflow ="auto";
+        }
+    });
+    return div;
+};
+
 const createModalDiv=()=>{
     let div=document.createElement("div");
+    div.style.marginTop="10px";
+    div.style.marginBottom="200px";
     div.style.width="400px";
     div.style.backgroundColor="beige";
     div.style.display="flex";
@@ -70,8 +93,7 @@ const createModalDiv=()=>{
     div.style.alignItems="center";
     div.style.gap="20px";
     div.style.position="absolute";
-    div.style.top="2%";
-    div.style.left="30%";
+    div.style.left="27%";
     div.style.borderRadius="20px";
     div.style.paddingLeft="10px";
     div.style.paddingRight="5px";
@@ -80,13 +102,15 @@ const createModalDiv=()=>{
 };
 
 const createModalMeal=(meal)=>{
+    let overlay=createOverlayDiv();
     let div=createModalDiv();
     let image=createImageModalMeal(meal);
     let title=createTitleModalMeal(meal);
     let listIngredients=createListIngredientsWithMeasures(meal);
     let description=createDescriptionText(meal);
     div.append(image,title,listIngredients,description);
-    container.appendChild(div);
+    overlay.appendChild(div);
+    container.appendChild(overlay);
 }
 
 const createDivMeal=(meal)=>{
@@ -140,7 +164,7 @@ input.addEventListener("click",e=>{
 });
 
 button.addEventListener("click",e=>{
-    if(input.value==""){
+    if(!input.value){
         message.innerText="You have to put a value";
     }else{
         callSearchMeals();
@@ -150,7 +174,13 @@ button.addEventListener("click",e=>{
 
 input.addEventListener("keydown",e=>{
     if(e.key=="Enter"){
-        callSearchMeals(input.value);
+        if(input.value){
+            callSearchMeals();
+        }else{
+            message.innerText="You have to put a value";
+        }
+    }else{
+        message.innerText="";
     }
 });
 
