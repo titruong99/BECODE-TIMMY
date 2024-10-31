@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body{
+    background-color: tomato;
+}
+
 .container{
     position:"relative";
     display:flex;
@@ -19,10 +23,6 @@
     row-gap: 10px;
 }
 
-.message{
-    color:red;
-}
-
 p{
     font-size: 10px;
 }
@@ -34,5 +34,9 @@ p{
 .meals{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
+    gap: 40px;
+}
+
+button{
+    margin-bottom: 20px;
 }

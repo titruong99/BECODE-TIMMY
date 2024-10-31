@@ -5,7 +5,7 @@ let meals=document.querySelector(".meals");
 let container=document.querySelector(".container");
 
 const searchMeals= async(food)=>{
-    let url = food.length==1?"https:www.themealdb.com/api/json/v1/1/search.php?f="+food
+    let url = food.length==1?"https://www.themealdb.com/api/json/v1/1/search.php?f="+food
     :"https://www.themealdb.com/api/json/v1/1/search.php?s="+food;
     let res=await fetch(url);
     let data=await res.json();
@@ -47,7 +47,6 @@ const createModalMeal=(meal)=>{
     div.style.justifyContent="center";
     div.style.alignItems="center";
     div.style.position="absolute";
-    div.style.top="0%";
     div.style.left="25%";
 
     let button=document.createElement("button");
@@ -87,16 +86,18 @@ const createMeal=(meal)=>{
     div.style.justifyContent="center";
     div.style.alignContent="center";
     div.style.textAlign="center";
-    div.style.width="100px";
-    div.style.height="100px";
+    div.style.width="200px";
+    div.style.height="200px";
+    div.style.gap="5px";
     div.addEventListener("click",e=>{
         createModalMeal(meal);
     })
 
     let imageMeal=document.createElement("img");
     imageMeal.src=meal["strMealThumb"];
-    imageMeal.style.width="80px";
-    imageMeal.style.height="80px";
+    imageMeal.style.width="200px";
+    imageMeal.style.height="200px";
+    imageMeal.style.borderRadius="10px";
     
     let mealName=document.createElement("p");
     mealName.innerText=meal["strMeal"];
@@ -118,11 +119,11 @@ input.addEventListener("click",e=>{
 });
 
 button.addEventListener("click",e=>{
-    callSearchMeals();
-    // if(input.value==""){
-    //     message.innerText="You have to put a value";
-    // }else{
-    // }
+    if(input.value==""){
+        message.innerText="You have to put a value";
+    }else{
+        callSearchMeals();
+    }
 
 });
 
