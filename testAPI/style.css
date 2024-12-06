@@ -1,0 +1,24 @@
+.swiper-genres {
+    width: 100%;
+    margin: 20px auto;
+}
+
+.swiper-slide-genre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    background: #007bff;
+    border-radius: 8px;
+    height: 150px; /* Taille fixe des slides */
+}
+
+.swiperGenre-button-prev, .swiperGenre-button-next {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+}

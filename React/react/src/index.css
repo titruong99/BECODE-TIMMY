@@ -1,0 +1,40 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  display: flex;
+  justify-content: center;
+}
+
+.formContainer{
+  width:200px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.title{
+  margin-bottom:20px ;
+}
+
+.fields{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.fields p{
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.fields input{
+  text-align: center;
+}
+
+.confirm{
+  margin-bottom:15px;
+}

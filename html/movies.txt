@@ -1,0 +1,6 @@
+Liste des choses à changer dans CSS/html
+- Swiper pour genres
+- images de film unload
+- hover décalé
+- les modal register et signin (ça tu savais déjà)
+- Anchor: scroll vers section correspondante
