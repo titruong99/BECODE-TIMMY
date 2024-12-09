@@ -16,6 +16,10 @@ function ToDo(){
         }
     }
 
+    const updateToDo=(i,acti)=>{
+        setToDos(toDos.map(t => t.nb === i ? { ...t, name: acti } : t));
+    }
+
     const deleteToDo=(i)=>{
         let newTodos=toDos.filter(t=>t.nb!==i)
         setToDos(newTodos);       
@@ -29,7 +33,7 @@ function ToDo(){
                         <button onClick={addToDo}>Add Todo</button>
                     </div>
                     <ul>
-                        {toDos.map((t,index)=><Activity key={index} activity={t.name} nb={t.nb} delete={deleteToDo}></Activity>)}
+                        {toDos.map((t)=><Activity key={t.nb} activity={t.name} nb={t.nb} delete={deleteToDo} update={updateToDo}></Activity>)}
                     </ul>
 
                 </div>
