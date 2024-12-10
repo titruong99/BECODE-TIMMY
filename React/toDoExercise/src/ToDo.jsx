@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import Activity from "./Activity";
 
 function ToDo(){
+    const [inputValue,setInputValue]=useState("");
     const [toDos,setToDos]=useState([]);
     const[nbActivity,setNbActivity]=useState(1);
     const [toDo,setToDo]=useState("");
     const handleValueInput=(e)=>{
         setToDo(e.target.value);
+        setInputValue(e.target);
     }
 
     const getLastIdToDo=()=>{
@@ -62,6 +64,8 @@ function ToDo(){
             setToDos((prevToDos) => [...prevToDos, newActivity]);
             addToDoDB();
             setNbActivity((prev) => prev + 1);
+            setToDo("");
+            inputValue.value="";
         }
     }
 
@@ -117,6 +121,10 @@ function ToDo(){
         setToDos([]);
         setNbActivity(1);
         clearToDosDB();
+        setToDo("");
+        if(toDos.length>0){
+          inputValue.value="";
+        }
     }
 
     return (<>
