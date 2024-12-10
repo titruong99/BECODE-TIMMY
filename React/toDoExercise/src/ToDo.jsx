@@ -14,6 +14,7 @@ function ToDo(){
       .then(response => response.json())
       .then(data => {
         setNbActivity(data.length==0?1:parseInt(data[data.length-1].id)+1);
+        getToDosDB(data);
       })
       .catch(error => console.error("Erreur :", error));
       
@@ -22,8 +23,7 @@ function ToDo(){
     const getToDosDB=(data)=>{
       let array=[];
       data.map(d=>{
-        console.log(d.id);
-        array.push({id:d.id,name:d.name});
+        array.push({nb:d.id,name:d.todo});
       }
         );
       setToDos(array);
