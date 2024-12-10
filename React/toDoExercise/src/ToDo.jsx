@@ -122,7 +122,7 @@ function ToDo(){
         setNbActivity(1);
         clearToDosDB();
         setToDo("");
-        if(toDos.length>0){
+        if(toDo!==""){
           inputValue.value="";
         }
     }

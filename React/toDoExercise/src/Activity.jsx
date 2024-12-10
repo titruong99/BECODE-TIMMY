@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 function Activity(activity){
+    const [inputValue,setInputValue]=useState("");
     const [val,setVal]=useState("");
     const deleteActivity=(e)=>{
         activity.delete(activity.nb);
@@ -8,11 +9,15 @@ function Activity(activity){
 
     const handleEditValue=(e)=>{
         setVal(e.target.value);
+        setInputValue(e.target);
     }
 
     const updateToDo=()=>{
         if(val!=="" && val !==undefined){
             activity.update(activity.nb,val);
+            if(val!==""){
+                inputValue.value="";
+            }
         }
     }
 
