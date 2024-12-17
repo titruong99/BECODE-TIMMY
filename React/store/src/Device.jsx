@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {useState } from "react";
 
 function Device({device}){
 
@@ -6,19 +6,18 @@ function Device({device}){
     const [image,setImage]=useState("https://media.direct.playstation.com/is/image/psdglobal/PS5PRO-Hero-1?$Background_Large$");
     const [price,setPrice]=useState("550");
     const [year,setYear]=useState("2020");
-    const [stock,setStock]=useState("10 000");
+    const [stock,setStock]=useState(device.stock);
 
 
     const deleteDevice=()=>{
         device.deleteDevice(device.id);
     }
 
-    const increase=()=>{
-        device.increaseDevice(device.id);
-    }
-
-    const decrease=()=>{
-        device.decreaseDevice(device.id);
+    const inCreaseOrDecreaseStock=(e)=>{
+        const classes=e.target.className.split(" ");
+        const newStock=classes[1]==="increase"?parseInt(stock)+1:parseInt(stock)-1;
+        setStock(newStock);
+        device.updateInformation(device.id,classes[0],newStock);
     }
 
     const changeName=(e)=>{
@@ -70,8 +69,8 @@ function Device({device}){
             <p>{device.stock}</p>
             <div>
                 <button onClick={deleteDevice}>Delete</button>
-                <button onClick={increase}>Increase</button>
-                <button onClick={decrease}>Decrease</button>
+                <button className="stock increase" onClick={inCreaseOrDecreaseStock}>Increase</button>
+                <button className="stock decrease" onClick={inCreaseOrDecreaseStock}>Decrease</button>
                 <button className="title" onClick={changeName}>Change name</button>
                 <input onChange={updateName} type="text" />
                 <button className="imgSrc" onClick={changeImage}>Change image</button>
