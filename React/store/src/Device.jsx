@@ -64,7 +64,7 @@ function Device({device}){
         <>
             <h1>{device.name}</h1>
             <img src={device.imgSrc} alt="image"></img>
-            <p>{device.price}</p>
+            <p>{device.price}{device.currency}</p>
             <p>{device.year}</p>
             <p>{device.stock}</p>
             <div>

@@ -1,8 +1,8 @@
 import DeviceForm from "../DeviceForm";
-function NewDevice(){
+function NewDevice({devices,updateDevicesForApp}){
     return (
         <>
-        <DeviceForm></DeviceForm>
+        <DeviceForm devices={devices} updateDevicesForApp={updateDevicesForApp}></DeviceForm>
         </>);
 }
 

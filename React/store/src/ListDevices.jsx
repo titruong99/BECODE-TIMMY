@@ -48,8 +48,8 @@ function ListDevices({devices,updateDevicesForApp}){
 
     return (<>
         <ul>
-            {devices.map(d=><Device key={d.id} device={{ id:d.id, name:d.title, price:d.price, year:d.year, imgSrc:d.imgSrc,stock:d.stock, 
-            deleteDevice:deleteDevice, updateInformation:updateInformation}}></Device>)}
+            {devices.map(d=><Device key={d.id} device={{ id:d.id, name:d.title, price:d.price, year:d.year, imgSrc:d.imgSrc,
+            stock:d.stock,currency:d.currency,deleteDevice:deleteDevice, updateInformation:updateInformation}}></Device>)}
         </ul>
             </>)
 }

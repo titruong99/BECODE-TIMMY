@@ -1,16 +1,51 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function DeviceForm(){
+function DeviceForm({devices,updateDevicesForApp}){
     const [name,setName]=useState("");
     const [picture,setPicture]=useState("");
-    const [price,setPrice]=useState("");
+    const [price,setPrice]=useState(0);
     const [year,setYear]=useState("");
-    const [stock,setStock]=useState("");
+    const [stock,setStock]=useState(0);
+    const navigate = useNavigate();
 
+    const getLastId=()=>{
+        return devices[devices.length-1].id;
+    }
+
+    const addDeviceDb=async (newDevice)=>{
+        try {
+        const response = await fetch('http://localhost:5000/products', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newDevice)
+        });
+        } catch (error) {
+            console.error('Erreur:', error);
+        }          
+    };
 
     const addDevice=(e)=>{
+        e.preventDefault();
         if(name!=="" && picture!=="" && price!=="" && year!=="" && stock!==""){
-            console.log("device à ajouter");
+            const newDevice={
+                id:parseInt(getLastId())+1+"",
+                title: name,
+                price: price,
+                currency: "€",
+                year: year,
+                stock: stock,
+                imgSrc: picture
+              };
+            devices.push(newDevice);
+            updateDevicesForApp(devices);
+            addDeviceDb(newDevice);
+            alert("device ajouté")
+            navigate("/devices");
+        }else{
+            alert("Il manque une information");
         }
     }
 

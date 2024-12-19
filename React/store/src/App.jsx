@@ -34,7 +34,7 @@ function App() {
       <BrowserRouter>
         <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/new-device" element={<NewDevice />} />
+        <Route path="/new-device" element={<NewDevice devices={devices} updateDevicesForApp={updateDevices} />} />
         <Route path="/devices" element={<Devices devices={devices} updateDevicesForApp={updateDevices}/>} />
         </Routes>
       </BrowserRouter>
