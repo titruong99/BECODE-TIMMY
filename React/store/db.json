@@ -1,91 +1,13 @@
 {
   "products": [
     {
-      "id": "8",
-      "title": "Samsung 55\" 4K Smart TV",
-      "price": 699.99,
-      "currency": "€",
-      "year": "2023",
-      "stock": 18,
-      "imgSrc": "https://m.media-amazon.com/images/I/71oLuYMtMPL._AC_UL480_FMwebp_QL65_.jpg"
-    },
-    {
-      "id": "9",
-      "title": "Apple iPad Pro 11-inch",
-      "price": 899.99,
-      "currency": "€",
-      "year": "2024",
-      "stock": 50,
-      "imgSrc": "https://m.media-amazon.com/images/I/61XdUvthrbL._AC_UL480_FMwebp_QL65_.jpg"
-    },
-    {
-      "id": "10",
-      "title": "JBL Flip 6 Bluetooth Speaker",
-      "price": 129.99,
-      "currency": "€",
-      "year": "2023",
-      "stock": 78,
-      "imgSrc": "https://m.media-amazon.com/images/I/71vvcOIHi+L._AC_UL480_FMwebp_QL65_.jpg"
-    },
-    {
-      "id": "11",
-      "title": "GoPro HERO12 Action Camera",
-      "price": 549.99,
-      "currency": "€",
-      "year": "2024",
-      "stock": 25,
-      "imgSrc": "https://m.media-amazon.com/images/I/61l2P9RV24L._AC_UL480_FMwebp_QL65_.jpg"
-    },
-    {
-      "id": "12",
-      "title": "Apple AirPods Pro (2nd Gen)",
-      "price": 249.99,
-      "currency": "€",
-      "year": "2024",
-      "stock": 65,
-      "imgSrc": "https://m.media-amazon.com/images/I/41elCMXwakL._AC_UL480_FMwebp_QL65_.jpg"
-    },
-    {
-      "id": "13",
-      "title": "Nintendo Switch OLED Model",
-      "price": 359.99,
-      "currency": "€",
-      "year": "2024",
-      "stock": 40,
-      "imgSrc": "https://m.media-amazon.com/images/I/71eVf1+jn6L._AC_UL480_FMwebp_QL65_.jpg"
-    },
-    {
-      "id": "14",
-      "title": "Fitbit Charge 6",
-      "price": 179.95,
-      "currency": "€",
-      "year": "2023",
-      "stock": 87,
-      "imgSrc": "https://m.media-amazon.com/images/I/61Te3kS75nL._AC_UL480_FMwebp_QL65_.jpg"
-    },
-    {
-      "id": "15",
-      "title": "Microsoft Surface Pro 9",
-      "price": 1299.99,
-      "currency": "€",
-      "year": "2024",
-      "stock": 22,
-      "imgSrc": "https://m.media-amazon.com/images/I/61T3CqIg3-L._AC_UL480_FMwebp_QL65_.jpg"
-    },
-    {
       "id": "16",
-      "title": "Asus ROG Strix Gaming Laptop",
+      "title": "PS5",
       "price": 2399.99,
       "currency": "€",
-      "year": "2024",
-      "stock": 10,
-      "imgSrc": "https://m.media-amazon.com/images/I/71DH3FLtlcL._AC_UL480_FMwebp_QL65_.jpg"
-    },
-    {
-      "id": "d4bf"
-    },
-    {
-      "id": "8071"
+      "year": "2020",
+      "stock": 11,
+      "imgSrc": "https://media.direct.playstation.com/is/image/psdglobal/PS5PRO-Hero-1?$Background_Large$"
     }
   ]
 }

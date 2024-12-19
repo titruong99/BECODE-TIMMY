@@ -1,0 +1,30 @@
+.formNewDevice{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.formNewDevice>input{
+    width: 500px;
+    margin-bottom: 20px;
+}
+
+.formNewDevice>button{
+    width: 500px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: gray;
+    color: white;
+    text-decoration: none; /* Retire le soulignement par défaut des liens */
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3; /* Couleur au survol */
+  }
+  
